@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 function HelloWorld(){
-    return (
-        <div>Hello World!</div>
+    return React.createElement(
+        'span',
+        { className: 'song-name'},
+        'Alabama'
     );
 }
 
