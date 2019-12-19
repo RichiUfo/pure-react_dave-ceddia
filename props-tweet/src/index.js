@@ -18,6 +18,24 @@ const MoreOptionsButton = () => (
     <i className="fa fa-ellipsis-h more-options-button"/>
 );
 
+function Tweet() {
+    return (
+    <div className="tweet">
+        <Avatar/>
+        <div className="content">
+            <NameWithHandle/><Time/>
+            <Message/>
+            <div className="buttons">
+                <ReplyButton/>
+                <RetweetButton/>
+                <LikeButton/>
+                <MoreOptionsButton/>
+            </div>
+        </div>
+    </div>
+    );
+}
+
 function Avatar() {
     return (
     <img
@@ -43,37 +61,5 @@ function NameWithHandle() {
     </span>
     );
 }
-
-// add the { tweet } destructuring
-function Tweet({ tweet }) {
-    return (
-    <div className="tweet">
-    <Avatar/>
-    <div className="content">
-    <NameWithHandle/><Time/>
-    <Message/>
-    <div className="buttons">
-    <ReplyButton/>
-    <RetweetButton/>
-    <LikeButton/>
-    <MoreOptionsButton/>
-    </div>
-    </div>
-    </div>
-);
-}
-// ...
-var testTweet = {
-message: "Something about cats.",
-gravatar: "xyz",
-author: {
-handle: "catperson",
-name: "IAMA Cat Person"
-},
-likes: 2,
-retweets: 0,
-timestamp: "2016-07-30 21:24:37"
-};
-
-ReactDOM.render(<Tweet tweet={testTweet}/>,
-document.querySelector('#root'));
+ReactDOM.render(<Tweet/>,
+    document.querySelector('#root'));
