@@ -16,17 +16,17 @@ const Time = ({ time }) => {
 const ReplyButton = () => (
     <i className="fa fa-reply reply-button"/>
 );
-function getRetweetCount(count){
-    if (count>0){
-        return (
-            <span className="retweet-count">
-                {count}
-            </span>
-        );
-    }else{
-        return null;
-    }
-}
+// function getRetweetCount(count){
+//     if (count>0){
+//         return (
+//             <span className="retweet-count">
+//                 {count}
+//             </span>
+//         );
+//     }else{
+//         return null;
+//     }
+// }
 function Count({ count }) {
     if(count > 0) {
     return (
@@ -46,11 +46,16 @@ const RetweetButton = ({ count }) => (
     );
 const LikeButton = ({ count }) => (
 <span className="like-button">
-<i className="fa fa-heart"/><span className="like-count">
-{count ? count : null}
-</span>
+<i className="fa fa-heart"/>
+        <span className="like-count">
+            {count}
+        </span>
 </span>
 );
+
+LikeButton.propTypes = {
+    count: PropTypes.number
+};
 const MoreOptionsButton = () => (
     <i className="fa fa-ellipsis-h more-options-button"/>
 );
@@ -73,23 +78,23 @@ function Message({text}) {
     );
 }
 
-function Comment({ author, message, likes }) {
-    return (
-    <div>
-    <div className='author'>{author}</div>
-    <div className='message'>{message}</div>
-    <div className='likes'>
-    {likes > 0 ? likes : 'No'} likes
-    </div>
-    </div>
-    );
-}
+// function Comment({ author, message, likes }) {
+//     return (
+//     <div>
+//     <div className='author'>{author}</div>
+//     <div className='message'>{message}</div>
+//     <div className='likes'>
+//     {likes > 0 ? likes : 'No'} likes
+//     </div>
+//     </div>
+//     );
+// }
 
-Comment.propTypes = {
-    message: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    likes: PropTypes.number
-}
+// Comment.propTypes = {
+//     message: PropTypes.string.isRequired,
+//     author: PropTypes.string.isRequired,
+//     likes: PropTypes.number
+// }
 
 function NameWithHandle({ author }) {
     const { name, handle } = author;
@@ -112,7 +117,7 @@ function Tweet({ tweet }) {
             <div className="buttons">
                 <ReplyButton/>
                 <RetweetButton count={tweet.retweets}/>
-                <LikeButton count={tweet.likes} />
+                <LikeButton count='qwe' />
                 <MoreOptionsButton/>
             </div>
         </div>
